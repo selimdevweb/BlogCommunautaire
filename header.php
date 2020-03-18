@@ -13,3 +13,8 @@
     <?php endif ?>
   </head>
   <body>
+  <nav >
+<a href="./index.php">Accueil</a>
+<a href="./inscription.php">Inscription</a>
+<a href="./connexion.php">Connexion</a>
+</nav>

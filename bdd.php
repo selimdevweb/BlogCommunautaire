@@ -1,7 +1,7 @@
 <?php
 $dbh = new PDO
 (
-    'mysql:host=localhost;dbname=blogSelim;charset=utf8',
+    'mysql:host=localhost;dbname=blog;charset=utf8',
     'root',
     '',
     [
