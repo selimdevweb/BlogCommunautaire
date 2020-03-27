@@ -30,4 +30,6 @@ require 'footer.php';
 	exit;
 	}
 
+	session_start();
+
 	

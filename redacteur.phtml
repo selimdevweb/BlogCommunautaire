@@ -1,0 +1,13 @@
+
+<div class="container-fluid">
+            <h1>Derniers articles :</h1>
+            <?php foreach($articles as $article): ?>
+                <div class="container-fluid">
+                    <a href="contenu-article.php?id=<?= intval($article['id']) ?>">
+                        <h2><?= $article['title'] ?>
+                        </h2><?php if($article['image'] != NULL):?><img src="./img/<?= $article['image'] ?>"><?php endif?>
+                    </a>
+                    <p>Rédiger par <a href="redacteur.php?id=<?= intval($article['writerId']) ?>"><?= $article['username'] ?></a> le <?= date('d-m-Y à G:i', strtotime($article['publicationDate'])) ?></p>
+                </div>
+            <?php endforeach ?>
+        </div>

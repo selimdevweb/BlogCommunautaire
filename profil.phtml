@@ -1,1 +1,21 @@
-<h2><?= "Bonjour ".$user['username']; ?></h2>
+<?php include 'header.php'; ?>
+        <div class="container">
+            <a href="./redigerUnArticle.php">Rédiger un article</a>
+            <hr>
+            <h2>Mes articles : </h2>
+            <div class="container-fluid">
+                <?php foreach($articles as $article): ?>
+                        <article>
+                            <a href="./articles.php?id=<?= intval($article['id']) ?>" class="info">
+                                <h2><?= htmlspecialchars($article['title']) ?></h2>
+                            </a>
+                            <p><?= date('d-m-Y à G:i', strtotime($article['dateParution'])) ?></p>
+                            
+                            <a href="./editionArticle.php?id=<?= intval($article['id']) ?>">Modifier l'article</a>
+                            <a href="./supprimerArticle.php?id=<?= intval($article['id']) ?>">Supprimer l'article</a>
+                        </article>
+                <?php endforeach ?>
+            </div>
+        </div>
+	</body>
+</html>

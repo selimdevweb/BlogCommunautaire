@@ -25,21 +25,20 @@ require 'footer.php';
 		$sth->execute();
 		$user = $sth->fetch();
 
-		//	S'il l'authentification est réussie…
+		//	quand la connexion  est réussie…
 		if($user !== false AND password_verify(trim($_POST['hashedPassword']), $user['hashedPassword']))
 		{
 			session_start();
 
-			$_SESSION['blog'] = intval($user['id']);
+			$_SESSION['profil'] = intval($user['id']);
                     
-			//	Redirection vers la page privée
 			header('Location: ./profil.php');
 			exit;
 		}
-		//	Sinon…
 		else
-		{
+		{	$erreur = "Identifiants incorrects";
 			//	Redirection vers la page d'accueil
+			echo $erreur;
 			header('Location: ./connexion.php');
 			exit;
 		}

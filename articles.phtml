@@ -1,0 +1,30 @@
+<?php include('./header.php'); ?>
+    <div class="container-fluid">
+        <h2><?= $article['title'] ?></h2>
+        <?php if($article['image'] != NULL):?>
+            <img src="./img/<?= $article['image'] ?>">
+        <?php endif?>
+        <br><br>
+        <p><?= $article['content'] ?></p>
+        <p>Rédiger par <a href="redacteur.php?id=<?= intval($article['idRedacteurs']) ?>"><?= $article['pseudo'] ?></a> le <?= date('d-m-Y à G:i', strtotime($article['dateParution'])) ?></p>
+    </div>
+    <div class="container-fluid">
+        <h3>Commentaires : </h3>
+        <?php foreach($commentaires as $commentaires):?>
+            <article>
+                <p><?= $commentaires['username'] . " : " . $commentaires['content'] ?></p>
+            </article>
+        <?php endforeach ?>
+    </div>
+    <div class="container-fluid">
+        <form action="commentaire.php" method="post">
+            <div class="form-group">
+                <input type="text" name="username" placeholder="Pseudo"/>
+            </div>
+            <input type="hidden" name="postId" placeholder="Pseudo" value="<?= intval($article['id']) ?>"/>
+            <div class="form-group">
+                <textarea name="content" placeholder="Commentaire..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Publier</button>
+        </form>
+    </div>
